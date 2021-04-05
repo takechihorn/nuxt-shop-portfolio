@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nuxtshopportfolio-dev-161003-authRole",
+      "UnauthRoleArn": "arn:aws:iam::213330998827:role/amplify-nuxtshopportfolio-dev-161003-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::213330998827:role/amplify-nuxtshopportfolio-dev-161003-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-nuxtshopportfolio-dev-161003-deployment",
+      "UnauthRoleName": "amplify-nuxtshopportfolio-dev-161003-unauthRole",
+      "StackName": "amplify-nuxtshopportfolio-dev-161003",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:213330998827:stack/amplify-nuxtshopportfolio-dev-161003/f32b8a00-95dd-11eb-abd3-0ab6aeba6805",
+      "AmplifyAppId": "d365v4mbj3bo7o"
+    },
+    "categories": {
+      "auth": {
+        "nuxtshopportfolio3b6470a9": {}
+      }
+    }
+  }
+}

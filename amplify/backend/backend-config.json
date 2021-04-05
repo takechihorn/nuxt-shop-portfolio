@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "nuxtshopportfolio3b6470a9": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
