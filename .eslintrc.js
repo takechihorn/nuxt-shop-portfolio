@@ -4,6 +4,10 @@ module.exports = {
     browser: true,
     node: true,
   },
+  parserOptions: {
+    // ここを変更
+    parser: '@typescript-eslint/parser',
+  },
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'plugin:prettier/recommended',
