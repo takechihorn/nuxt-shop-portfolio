@@ -1,73 +1,37 @@
 <template>
-  <v-container>
-    <v-card>
-      <amplify-authenticator v-if="authState !== 'signedin'">
-        <amplify-sign-in
-          slot="sign-in"
-          header-text="My Custom Sign In Text"
-          :form-fields.prop="data.formFields"
-        ></amplify-sign-in>
-        <amplify-sign-up
-          slot="sign-up"
-          header-text="My Custom Sign Up Text"
-          :form-fields.prop="data.formFields"
-        ></amplify-sign-up>
-      </amplify-authenticator>
-      <div v-if="authState === 'signedin' && user">
-        <!-- <amplify-greetings :username="user.username"></amplify-greetings> -->
-        <!-- <amplify-sign-out button-text="Custom Text"></amplify-sign-out> -->
-        <div>Hello user, {{ data.user.username }} have a happy day!</div>
-        <amplify-sign-out></amplify-sign-out>
-      </div>
-    </v-card>
-  </v-container>
+  <amplify-authenticator :auth-config="data.authConfig" />
 </template>
-
-<script lang="ts">
-import { defineComponent, ref, onBeforeUnmount } from '@vue/composition-api'
-
-import { onAuthUIStateChange } from '@aws-amplify/ui-components'
-
+<script>
+import { defineComponent, ref } from '@vue/composition-api'
 export default defineComponent({
-  stup() {
+  setup() {
     const data = ref({
-      user: undefined,
-      authState: undefined,
-      formFields: [
-        {
-          type: 'email',
-          label: 'Custom email Label',
-          placeholder: 'custom email placeholder',
-          required: true,
+      authConfig: {
+        signInConfig: {
+          header: 'サインイン',
         },
-        {
-          type: 'password',
-          label: 'Custom Password Label',
-          placeholder: 'custom password placeholder',
-          required: true,
+        signUpConfig: {
+          hideDefaults: true,
+          signUpFields: [
+            {
+              label: 'ユーザーID',
+              key: 'username',
+              required: true,
+              type: 'email',
+              displayOrder: 0,
+            },
+            {
+              label: 'パスワード',
+              key: 'password',
+              required: true,
+              type: 'password',
+              displayOrder: 1,
+            },
+          ],
         },
-      ],
-    })
-
-    onAuthUIStateChange((authState, authData) => {
-      this.authState = authState
-      this.user = authData
-    })
-
-    onBeforeUnmount(() => {
-      return onAuthUIStateChange
+      },
     })
     return { data }
   },
 })
 </script>
-
-<style>
-amplify-authenticator {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  height: auto;
-}
-</style>

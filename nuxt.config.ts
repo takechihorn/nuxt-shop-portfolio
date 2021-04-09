@@ -20,7 +20,7 @@ const nuxtConfig: Configuration = {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/amplify.ts', ssr: false },
-    '@/plugins/composition-api',
+    '@/plugins/composition-api.ts',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -74,9 +74,6 @@ const nuxtConfig: Configuration = {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    transpile: [/typed-vuex/],
-    extend(config, ctx) {},
-  },
+  build: {},
 }
 export default nuxtConfig
